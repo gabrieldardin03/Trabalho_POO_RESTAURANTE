@@ -1,31 +1,54 @@
 // Prato.cs
 public class Prato
 {
+    // Atributos privados para armazenar informações do prato
+    private string nome;
     private decimal preco;
-    public string Nome { get; set; }
-    public bool Vegetariano { get; set; }
+    private bool vegetariano;
 
-    public Pratos(string nome, decimal preco, bool vegetariano)
+    // Construtor para inicializar os atributos
+    public Prato(string nome, decimal preco, bool vegetariano)
     {
-        Nome = nome;
+        this.nome = nome;
         this.preco = preco;
-        Vegetariano = vegetariano;
+        this.vegetariano = vegetariano;
     }
 
-    public void AtualizarPreco(decimal novoPreco)
+    // Métodos getters e setters para acessar e modificar os atributos
+    public string GetNome()
     {
-        if (novoPreco > 0)
-        {
-            preco = novoPreco;
-        }
-        else
-        {
-            throw new ArgumentException("O preço deve ser maior que zero.");
-        }
+        return nome;
     }
 
-    public decimal ObterPreco()
+    public void SetNome(string nome)
+    {
+        this.nome = nome;
+    }
+
+    public decimal GetPreco()
     {
         return preco;
+    }
+
+    public void SetPreco(decimal preco)
+    {
+        this.preco = preco;
+    }
+
+    public bool GetVegetariano()
+    {
+        return vegetariano;
+    }
+
+    public void SetVegetariano(bool vegetariano)
+    {
+        this.vegetariano = vegetariano;
+    }
+
+    // Método para retornar uma string com as informações do prato
+    //F2 foi utilizado para que fique apenas dois numeros após a virgula ex 2.50 R$
+    public string GetPratoString()
+    {
+        return $"Prato: {nome}, Preço: R$ {preco:F2}, Vegetariano: {(vegetariano ? "Sim" : "Não")}";
     }
 }

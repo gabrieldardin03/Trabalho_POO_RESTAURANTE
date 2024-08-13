@@ -8,31 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\aluno\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\dardi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aluno\\Documents\\GitHub\\Trabalho_POO_RESTAURANTE\\Trabalho_POO_RESTAURANTE.csproj",
+      "projectUniqueName": "C:\\Users\\dardi\\Documents\\GitHub\\Trabalho_POO_RESTAURANTE\\Trabalho_POO_RESTAURANTE.csproj",
       "projectName": "Trabalho_POO_RESTAURANTE",
-      "projectPath": "C:\\Users\\aluno\\Documents\\GitHub\\Trabalho_POO_RESTAURANTE\\Trabalho_POO_RESTAURANTE.csproj",
-      "packagesPath": "C:\\Users\\aluno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aluno\\Documents\\GitHub\\Trabalho_POO_RESTAURANTE\\obj\\",
+      "projectPath": "C:\\Users\\dardi\\Documents\\GitHub\\Trabalho_POO_RESTAURANTE\\Trabalho_POO_RESTAURANTE.csproj",
+      "packagesPath": "C:\\Users\\dardi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dardi\\Documents\\GitHub\\Trabalho_POO_RESTAURANTE\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\aluno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\dardi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -45,6 +38,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -66,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
