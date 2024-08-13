@@ -1,4 +1,6 @@
 // Prato.cs
+using System;
+
 public class Prato
 {
     // Atributos privados para armazenar informações do prato

@@ -1,4 +1,6 @@
 // Pedido.cs
+using System;
+
 public abstract class Pedido
 {
     // Atributos privados para armazenar informações do pedido
