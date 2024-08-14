@@ -1,46 +1,16 @@
-// Pedido.cs
-using System;
-
-public abstract class Pedido
+public class Pedido
 {
-    // Atributos privados para armazenar informações do pedido
-    private string numeroPedido;
-    private List<Prato> pratos;
+    public string NomeRestaurante { get; set; }
+    public List<Prato> Pratos { get; set; }
 
-    // Construtor para inicializar os atributos
-    public Pedido(string numeroPedido)
+    public Pedido(string nomeRestaurante)
     {
-        this.numeroPedido = numeroPedido;
-        pratos = new List<Prato>();
-    }
-
-    // Métodos getters e setters para acessar e modificar os atributos
-    public string GetNumeroPedido()
-    {
-        return numeroPedido;
-    }
-
-    public void SetNumeroPedido(string numeroPedido)
-    {
-        this.numeroPedido = numeroPedido;
-    }
-
-    public List<Prato> GetPratos()
-    {
-        return pratos;
+        NomeRestaurante = nomeRestaurante;
+        Pratos = new List<Prato>();
     }
 
     public void AdicionarPrato(Prato prato)
     {
-        pratos.Add(prato);
-    }
-
-    // Método abstrato para calcular o total do pedido
-    public abstract decimal CalcularTotal();
-
-    // Método para retornar o total do pedido como string
-    public string GetTotalString()
-    {
-        return "Total do pedido: R$ " + CalcularTotal().ToString("F2");
+        Pratos.Add(prato);
     }
 }

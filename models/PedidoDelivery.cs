@@ -1,25 +1,29 @@
-// PedidoDelivery.cs
-using System;
-
 public class PedidoDelivery : Pedido
 {
-    // Atributo privado para armazenar a taxa de entrega
-    private decimal taxaDeEntrega;
+    private const decimal TaxaEntrega = 10.00m;
 
-    // Construtor para inicializar os atributos e a taxa de entrega
-    public PedidoDelivery(string numeroPedido) : base(numeroPedido)
+    public PedidoDelivery(string numeroPedido) 
+        : base(numeroPedido)
     {
-        taxaDeEntrega = 10.00m;
     }
 
-    // Método para calcular o total do pedido, incluindo a taxa de entrega
     public override decimal CalcularTotal()
     {
-        decimal total = 0;
-        foreach (var prato in GetPratos())
+        if (Pratos == null)
         {
-            total += prato.GetPreco();
+            throw new InvalidOperationException("Lista de pratos não pode ser nula.");
         }
-        return total + taxaDeEntrega;
+
+        decimal total = 0;
+        foreach (var prato in Pratos)
+        {
+            if (prato == null)
+            {
+                throw new InvalidOperationException("Prato não pode ser nulo.");
+            }
+
+            total += prato.ObterPreco();
+        }
+        return total + TaxaEntrega;
     }
 }
