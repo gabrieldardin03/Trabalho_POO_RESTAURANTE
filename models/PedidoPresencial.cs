@@ -1,3 +1,4 @@
+namespace RestaurantePOO{
 public class PedidoPresencial : Pedido
 {
     public PedidoPresencial(string numeroPedido) 
@@ -5,7 +6,7 @@ public class PedidoPresencial : Pedido
     {
     }
 
-    public override decimal CalcularTotal()
+    public  decimal CalcularTotal()
     {
         if (Pratos == null)
         {
@@ -23,5 +24,5 @@ public class PedidoPresencial : Pedido
             total += prato.ObterPreco();
         }
         return total;
-    }
+    }}
 }

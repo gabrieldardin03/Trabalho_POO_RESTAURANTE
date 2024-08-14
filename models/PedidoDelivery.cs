@@ -1,3 +1,5 @@
+using System;
+
 public class PedidoDelivery : Pedido
 {
     private const decimal TaxaEntrega = 10.00m;
@@ -7,7 +9,7 @@ public class PedidoDelivery : Pedido
     {
     }
 
-    public override decimal CalcularTotal()
+    public  decimal CalcularTotal()
     {
         if (Pratos == null)
         {
