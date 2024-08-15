@@ -11,7 +11,7 @@ namespace RestaurantePOO
 
             while (true)
             {
-                Console.WriteLine("1. Criar restaurante");
+                Console.WriteLine("\n 1. Criar restaurante");
                 Console.WriteLine("2. Criar prato");
                 Console.WriteLine("3. Adicionar prato ao restaurante");
                 Console.WriteLine("4. Listar restaurantes");
@@ -20,7 +20,7 @@ namespace RestaurantePOO
                 Console.WriteLine("7. Sair");
 
                 Console.Write("Escolha uma opção: ");
-                int opcao = int.Parse(Console.ReadLine());
+                int opcao = int.Parse(Console.ReadLine(  ));
 
                 switch (opcao)
                 {
@@ -81,7 +81,7 @@ namespace RestaurantePOO
         static void AdicionarPratoAoRestaurante(List<Restaurante> restaurantes)
         {
             Console.Write("Selecione o restaurante: ");
-            int indiceRestaurante = int.Parse(Console.ReadLine());
+            int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine());
             Restaurante restaurante = restaurantes[indiceRestaurante - 1];
 
             Console.Write("Selecione o prato: ");
@@ -104,7 +104,7 @@ namespace RestaurantePOO
         static void ListarPratosDeUmRestaurante(List<Restaurante> restaurantes)
         {
             Console.Write("Selecione o restaurante: ");
-            int indiceRestaurante = int.Parse(Console.ReadLine());
+               int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine());
             Restaurante restaurante = restaurantes[indiceRestaurante - 1];
 
             Console.WriteLine("Pratos:");
@@ -119,7 +119,7 @@ namespace RestaurantePOO
 static void ProcessarPedido(List<Restaurante> restaurantes)
 {
     Console.Write("Selecione o restaurante: ");
-    int indiceRestaurante = int.Parse(Console.ReadLine());
+     int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine());
     Restaurante restaurante = restaurantes[indiceRestaurante - 1];
 
     Console.WriteLine("Pratos disponíveis:");
@@ -129,12 +129,12 @@ static void ProcessarPedido(List<Restaurante> restaurantes)
     }
 
     Console.Write("Selecione o prato: ");
-    int indicePrato = int.Parse(Console.ReadLine());
+    int indicePrato = Convert.ToInt32(System.Console.ReadLine());
     Prato pratoSelecionado = restaurante.Cardapio[indicePrato - 1];
 
     Pedido pedido = new Pedido(restaurante.Nome);
     pedido.AdicionarPrato(pratoSelecionado);
     Console.WriteLine("Pedido criado com sucesso!");
 }
-}
+}//            int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine()); fazer nos demais
 }

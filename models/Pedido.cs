@@ -1,3 +1,4 @@
+namespace RestaurantePOO;
 public class Pedido
 {
     public string NomeRestaurante { get; set; }

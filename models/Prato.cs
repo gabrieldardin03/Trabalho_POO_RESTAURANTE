@@ -1,3 +1,4 @@
+namespace RestaurantePOO;
 public class Prato
 {
     public string Nome { get; set; }

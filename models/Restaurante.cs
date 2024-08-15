@@ -1,3 +1,4 @@
+namespace RestaurantePOO;
 public class Restaurante : Estabelecimento
 {
     public List<Prato> Cardapio { get; set; }

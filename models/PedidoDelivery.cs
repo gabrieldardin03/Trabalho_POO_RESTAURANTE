@@ -1,5 +1,6 @@
 using System;
 
+namespace RestaurantePOO;
 public class PedidoDelivery : Pedido
 {
     private const decimal TaxaEntrega = 10.00m;

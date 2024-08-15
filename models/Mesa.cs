@@ -1,4 +1,5 @@
 // Mesa.cs
+namespace RestaurantePOO;
 public class Mesa
 {
     private int numeroMesa;
