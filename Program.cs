@@ -95,16 +95,17 @@ namespace RestaurantePOO
         Console.WriteLine("Preencha todos os campos corretamente para criar o prato.");
     }
 }
-  static void AdicionarPratoAoRestaurante(List<Restaurante> restaurantes)
+ static void AdicionarPratoAoRestaurante(List<Restaurante> restaurantes)
 {
     Console.Write("Selecione o restaurante: ");
     string indiceRestauranteStr = Console.ReadLine();
-    if (string.IsNullOrEmpty(indiceRestauranteStr))
+    int indiceRestauranteInt;
+    if (!int.TryParse(indiceRestauranteStr, out indiceRestauranteInt))
     {
         Console.WriteLine("Selecione um restaurante válido.");
         return;
     }
-    int indiceRestauranteInt = int.Parse(indiceRestauranteStr) - 1;
+    indiceRestauranteInt -= 1;
     if (indiceRestauranteInt < 0 || indiceRestauranteInt >= restaurantes.Count)
     {
         Console.WriteLine("Selecione um restaurante válido.");
@@ -120,12 +121,13 @@ namespace RestaurantePOO
 
     Console.Write("Selecione o prato: ");
     string indicePratoStr = Console.ReadLine();
-    if (string.IsNullOrEmpty(indicePratoStr))
+    int indicePratoInt;
+    if (!int.TryParse(indicePratoStr, out indicePratoInt))
     {
         Console.WriteLine("Selecione um prato válido.");
         return;
     }
-    int indicePratoInt = int.Parse(indicePratoStr) - 1;
+    indicePratoInt -= 1;
     if (indicePratoInt < 0 || indicePratoInt >= pratos.Count)
     {
         Console.WriteLine("Selecione um prato válido.");
@@ -145,26 +147,48 @@ static void ListarRestaurantes(List<Restaurante> restaurantes)
     }
 }
 
-        static void ListarPratosDeUmRestaurante(List<Restaurante> restaurantes)
-        {
-            Console.Write("Selecione o restaurante: ");
-               int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine());
-            Restaurante restaurante = restaurantes[indiceRestaurante - 1];
+       static void ListarPratosDeUmRestaurante(List<Restaurante> restaurantes)
+{
+    Console.Write("Selecione o restaurante: ");
+    string indiceRestauranteStr = Console.ReadLine();
+    int indiceRestauranteInt;
+    if (!int.TryParse(indiceRestauranteStr, out indiceRestauranteInt))
+    {
+        Console.WriteLine("Selecione um restaurante válido.");
+        return;
+    }
+    indiceRestauranteInt -= 1;
+    if (indiceRestauranteInt < 0 || indiceRestauranteInt >= restaurantes.Count)
+    {
+        Console.WriteLine("Selecione um restaurante válido.");
+        return;
+    }
+    Restaurante restaurante = restaurantes[indiceRestauranteInt];
 
-            Console.WriteLine("Pratos:");
-            foreach (var prato in restaurante.Cardapio)
-            {
-                Console.WriteLine($"{prato.Nome} - R$ {prato.ObterPreco():F2}");
-            }
-        }
-
-        static List<Prato> pratos = new List<Prato>(); // lista de pratos criados
+    Console.WriteLine("Pratos:");
+    foreach (var prato in restaurante.Cardapio)
+    {
+        Console.WriteLine($"{prato.Nome} - R$ {prato.ObterPreco():F2}");
+    }
+}
 
 static void ProcessarPedido(List<Restaurante> restaurantes)
 {
     Console.Write("Selecione o restaurante: ");
-     int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine());
-    Restaurante restaurante = restaurantes[indiceRestaurante - 1];
+    string indiceRestauranteStr = Console.ReadLine();
+    int indiceRestauranteInt;
+    if (!int.TryParse(indiceRestauranteStr, out indiceRestauranteInt))
+    {
+        Console.WriteLine("Selecione um restaurante válido.");
+        return;
+    }
+    indiceRestauranteInt -= 1;
+    if (indiceRestauranteInt < 0 || indiceRestauranteInt >= restaurantes.Count)
+    {
+        Console.WriteLine("Selecione um restaurante válido.");
+        return;
+    }
+    Restaurante restaurante = restaurantes[indiceRestauranteInt];
 
     Console.WriteLine("Pratos disponíveis:");
     for (int i = 0; i < restaurante.Cardapio.Count; i++)
@@ -173,12 +197,25 @@ static void ProcessarPedido(List<Restaurante> restaurantes)
     }
 
     Console.Write("Selecione o prato: ");
-    int indicePrato = Convert.ToInt32(System.Console.ReadLine());
-    Prato pratoSelecionado = restaurante.Cardapio[indicePrato - 1];
+    string indicePratoStr = Console.ReadLine();
+    int indicePratoInt;
+    if (!int.TryParse(indicePratoStr, out indicePratoInt))
+    {
+        Console.WriteLine("Selecione um prato válido.");
+        return;
+    }
+    indicePratoInt -= 1;
+    if (indicePratoInt < 0 || indicePratoInt >= restaurante.Cardapio.Count)
+    {
+        Console.WriteLine("Selecione um prato válido.");
+        return;
+    }
+    Prato pratoSelecionado = restaurante.Cardapio[indicePratoInt];
 
     Pedido pedido = new Pedido(restaurante.Nome);
     pedido.AdicionarPrato(pratoSelecionado);
     Console.WriteLine("Pedido criado com sucesso!");
+}
 }
 }//            int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine()); fazer nos demais
 }
