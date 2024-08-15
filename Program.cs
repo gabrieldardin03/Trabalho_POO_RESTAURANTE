@@ -95,6 +95,7 @@ namespace RestaurantePOO
         Console.WriteLine("Preencha todos os campos corretamente para criar o prato.");
     }
 }
+
  static void AdicionarPratoAoRestaurante(List<Restaurante> restaurantes)
 {
     Console.Write("Selecione o restaurante: ");
@@ -113,7 +114,7 @@ namespace RestaurantePOO
     }
     Restaurante restaurante = restaurantes[indiceRestauranteInt];
 
-    Console.WriteLine("Pratos");
+    Console.WriteLine("Pratos:");
     for (int i = 0; i < pratos.Count; i++)
     {
         Console.WriteLine($"{i + 1}. {pratos[i].Nome}");
@@ -138,6 +139,8 @@ namespace RestaurantePOO
     restaurante.AdicionarPrato(prato);
     Console.WriteLine("Prato adicionado com sucesso!");
 }
+
+
 static void ListarRestaurantes(List<Restaurante> restaurantes)
 {
     Console.WriteLine("Restaurantes");
@@ -165,7 +168,7 @@ static void ListarRestaurantes(List<Restaurante> restaurantes)
 static void ProcessarPedido(List<Restaurante> restaurantes)
 {
     Console.Write("Selecione o restaurante: ");
-     int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine());
+    int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine());
     Restaurante restaurante = restaurantes[indiceRestaurante - 1];
 
     Console.WriteLine("Pratos disponíveis:");
@@ -178,9 +181,19 @@ static void ProcessarPedido(List<Restaurante> restaurantes)
     int indicePrato = Convert.ToInt32(System.Console.ReadLine());
     Prato pratoSelecionado = restaurante.Cardapio[indicePrato - 1];
 
+    Console.Write("Tipo de pedido (presencial ou delivery): ");
+    string tipoPedido = Console.ReadLine();
+
     Pedido pedido = new Pedido(restaurante.Nome);
     pedido.AdicionarPrato(pratoSelecionado);
+
+    if (tipoPedido.ToLower() == "delivery")
+    {
+        pedido.AdicionarTarifaDelivery(10);
+    }
+
     Console.WriteLine("Pedido criado com sucesso!");
+    Console.WriteLine($"Total: R$ {pedido.ObterTotal():F2}");
+}        int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine()); fazer nos demais
 }
-}//            int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine()); fazer nos demais
 }
