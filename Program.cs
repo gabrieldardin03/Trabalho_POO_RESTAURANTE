@@ -168,7 +168,7 @@ static void ListarRestaurantes(List<Restaurante> restaurantes)
 static void ProcessarPedido(List<Restaurante> restaurantes)
 {
     Console.Write("Selecione o restaurante: ");
-    int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine());
+    int indiceRestaurante = Convert.ToInt32(Console.ReadLine());
     Restaurante restaurante = restaurantes[indiceRestaurante - 1];
 
     Console.WriteLine("Pratos disponíveis:");
@@ -178,22 +178,37 @@ static void ProcessarPedido(List<Restaurante> restaurantes)
     }
 
     Console.Write("Selecione o prato: ");
-    int indicePrato = Convert.ToInt32(System.Console.ReadLine());
+    int indicePrato = Convert.ToInt32(Console.ReadLine());
     Prato pratoSelecionado = restaurante.Cardapio[indicePrato - 1];
 
-    Console.Write("Tipo de pedido (presencial ou delivery): ");
-    string tipoPedido = Console.ReadLine();
+    Console.Write("Deseja delivery? (s/n): ");
+    string opcaoDelivery = Console.ReadLine();
 
-    Pedido pedido = new Pedido(restaurante.Nome);
-    pedido.AdicionarPrato(pratoSelecionado);
+    Pedido pedido;
 
-    if (tipoPedido.ToLower() == "delivery")
+    if (opcaoDelivery.ToLower() == "s")
     {
-        pedido.AdicionarTarifaDelivery(10);
+        pedido = new PedidoDelivery(restaurante.Nome);
+    }
+    else
+    {
+        pedido = new Pedido(restaurante.Nome);
     }
 
+    pedido.AdicionarPrato(pratoSelecionado);
     Console.WriteLine("Pedido criado com sucesso!");
-    Console.WriteLine($"Total: R$ {pedido.ObterTotal():F2}");
-}        int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine()); fazer nos demais
+
+    if (opcaoDelivery.ToLower() == "s")
+    {
+        decimal total = ((PedidoDelivery)pedido).CalcularTotal();
+        Console.WriteLine($"Total do pedido com taxa de entrega: R$ {total:F2}");
+    }
+    else
+    {
+        decimal total = pratoSelecionado.ObterPreco();
+        Console.WriteLine($"Total do pedido: R$ {total:F2}");
+    }
 }
+
+}//            int indiceRestaurante = Convert.ToInt32(System.Console.ReadLine()); fazer nos demais
 }
