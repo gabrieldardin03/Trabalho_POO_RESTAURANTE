@@ -7,8 +7,9 @@ namespace RestaurantePOO
     {
         static void Main(string[] args)
         {
+            // Cria uma lista para armazenar os restaurantes
             List<Restaurante> restaurantes = new List<Restaurante>();
-
+            //loop
             while (true)
             {
                 Console.WriteLine("\n 1. Criar restaurante");
@@ -24,43 +25,45 @@ namespace RestaurantePOO
               
                 switch (opcao)
                 {
-                    case 1:
+                    case 1:// chama o metodo
                         CriarRestaurante(restaurantes);
                         break;
-                    case 2:
+                    case 2:// chama o metodo
                         CriarPrato();
                         break;
-                    case 3:
+                    case 3:// chama o metodo
                         AdicionarPratoAoRestaurante(restaurantes);
                         break;
-                    case 4:
+                    case 4:// chama o metodo
                         ListarRestaurantes(restaurantes);
                         break;
-                    case 5:
+                    case 5:// chama o metodo
                         ListarPratosDeUmRestaurante(restaurantes);
                         break;
-                    case 6:
+                    case 6:// chama o metodo
                         ProcessarPedido(restaurantes);
                         break;
-                    case 7:
+                    case 7:// chama o metodo
                         return;
-                    default:
+                    default:// chama o metodo
                         Console.WriteLine("Opção inválida.");
                         break;
                 }
             }
         }
 
+        // Método para criar um novo restaurante
         static void CriarRestaurante(List<Restaurante> restaurantes)
-{
+{ // Verifica se os campos foram preenchidos corretamente
     Console.Write("Nome do restaurante: ");
     string nome = Convert.ToString(System.Console.ReadLine());
     Console.Write("Endereço do restaurante: ");
     string endereco = Convert.ToString(System.Console.ReadLine());
     Console.Write("Telefone do restaurante: ");
     string telefone = Convert.ToString(System.Console.ReadLine());
-//fiz um if para se o usuario adinar valores nulos e notifique que precisa preencher todos os campos
 
+//fiz um if para se o usuario adinar valores nulos e notifique que precisa preencher todos os campos
+  
     if (!string.IsNullOrEmpty(nome) && !string.IsNullOrEmpty(endereco) && !string.IsNullOrEmpty(telefone))
     {
         Restaurante restaurante = new Restaurante(nome, endereco, telefone);
@@ -72,7 +75,7 @@ namespace RestaurantePOO
         Console.WriteLine("Preencha todos os campos para criar o restaurante.");
     }
 }
-
+//criar um novo prato 
        static void CriarPrato()
 {
     Console.Write("Nome do prato: ");
@@ -82,7 +85,7 @@ namespace RestaurantePOO
     decimal preco;
     Console.Write("É vegetariano? (s/n): ");
     string vegetarianoStr = Console.ReadLine();
-
+ // verifica se  os campos foram preenchidos corretamente
     if (!string.IsNullOrEmpty(nome) && decimal.TryParse(precoStr, out preco) && (vegetarianoStr.ToLower() == "s" || vegetarianoStr.ToLower() == "n"))
     {
         bool vegetariano = vegetarianoStr.ToLower() == "s";
@@ -95,12 +98,14 @@ namespace RestaurantePOO
         Console.WriteLine("Preencha todos os campos corretamente para criar o prato.");
     }
 }
-
+ //adiciona o prato ao restaurante
  static void AdicionarPratoAoRestaurante(List<Restaurante> restaurantes)
 {
     Console.Write("Selecione o restaurante: ");
     string indiceRestauranteStr = Console.ReadLine();
     int indiceRestauranteInt;
+     // verifica se  os campos foram preenchidos corretamente
+
     if (!int.TryParse(indiceRestauranteStr, out indiceRestauranteInt))
     {
         Console.WriteLine("Selecione um restaurante válido.");
@@ -135,7 +140,7 @@ namespace RestaurantePOO
         return;
     }
     Prato prato = pratos[indicePratoInt];
-
+  Console.Write("Deseja alterar o preço do prato? (s/n): ");
     restaurante.AdicionarPrato(prato);
     Console.WriteLine("Prato adicionado com sucesso!");
 }
